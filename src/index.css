@@ -6,3 +6,22 @@ body{
 
     background-color: #171513;
 }
+
+@font-face {
+    font-family: "floral";
+    src: url(../public/floral.otf);
+}
+
+@font-face {
+    font-family: "classy";
+    src: url(../public/classy.otf);
+}
+
+.floral{
+    
+    font-family: "floral";
+}
+.classy{
+    
+    font-family: "classy";
+}

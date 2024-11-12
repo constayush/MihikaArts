@@ -131,16 +131,23 @@ export const products = [
 export default function Main() {
   return( <>
   
-  <HeroParallax data-scroll-container products={products} />
+  <HeroParallax  data-scroll-container products={products} />
 
 
 
-<div className="min-w-full p-[5rem] flex flex-col gap-[2.5rem]">
+<div className="min-w-full h-auto p-[5rem] flex flex-col gap-[2.5rem]">
+
+
+<h1 className="classy font-extrabold text-[6.75rem] text-[#FBF0DA]">I <span className="floral">Create</span> Art</h1>
+<h1 className="classy font-extrabold text-[6.75rem] text-[#FBF0DA]">I <span className="floral">Draw  </span> Life in Colors</h1>
+<h1 className="classy font-extrabold text-[6.75rem] text-[#FBF0DA]">I <span className="floral">Live  </span> Through Art</h1>
+
+
+
 
 
 <FocusCards cards={cards}/>
 
-<FocusCards cards={cards}/>
 </div>
 
 

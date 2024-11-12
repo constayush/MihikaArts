@@ -106,11 +106,11 @@ export const HeroParallax = ({
 export const Header = () => {
   return (
     <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0">
-      <h1 className="text-[3rem] md:text-[6.5rem] lg:text-[9rem] font-bold text-[#FBF0DA] ">
+      <h1 className=" floral text-[3rem] md:text-[6.5rem] lg:text-[9rem] font-bold text-[#FBF0DA] ">
         Mihika Arts
       </h1>
-      <p className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200">
-      Explore a curated collection of art that captures imagination and creativity. Each piece tells a story, inviting you to experience beauty in every stroke. Discover art that resonates, inspires, and delights.
+      <p className=" classy max-w-3xl text-base md:text-xl mt-8 font-semibold  tracking-[0.2rem] dark:text-neutral-200">
+      Explore a curated collection of art that captures imagination and creativity. Each piece tells a story, inviting you to experience beauty in every stroke.
       </p>
     </div>
   );
