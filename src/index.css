@@ -4,17 +4,17 @@
 
 body{
 
-    background-color: #171513;
+    background-color: #171717;
 }
 
 @font-face {
     font-family: "floral";
-    src: url(../public/floral.otf);
+    src: url(/floral.otf);
 }
 
 @font-face {
     font-family: "classy";
-    src: url(../public/classy.otf);
+    src: url(/classy.otf);
 }
 
 .floral{

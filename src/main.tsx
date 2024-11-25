@@ -1,11 +1,8 @@
-"use client";
-import React from "react";
-import { HeroParallax } from "./ui/hero-parallax";
+"use client"; 
+import React, { useState, useEffect } from "react";
 import LocomotiveScroll from 'locomotive-scroll';
-import tempImg from '../public/temp.jpeg'
 import {FocusCards} from './ui/cardsGrid'
 const scroll = new LocomotiveScroll();
-
 
 const cards = [
   {
@@ -31,127 +28,62 @@ const cards = [
   {
     title: "The First Rule",
     src: "https://assets.aceternity.com/the-first-rule.png",
-  } ]
-
-export const products = [
-  {
-    title: "Moonbeam",
-    link: "https://gomoonbeam.com",
-    thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/moonbeam.png",
   },
-  {
-    title: "Cursor",
-    link: "https://cursor.so",
-    thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/cursor.png",
-  },
-  {
-    title: "Rogue",
-    link: "https://userogue.com",
-    thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/rogue.png",
-  },
-
-  {
-    title: "Editorially",
-    link: "https://editorially.org",
-    thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/editorially.png",
-  },
-  {
-    title: "Editrix AI",
-    link: "https://editrix.ai",
-    thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/editrix.png",
-  },
-  {
-    title: "Pixel Perfect",
-    link: "https://app.pixelperfect.quest",
-    thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/pixelperfect.png",
-  },
-
-  {
-    title: "Algochurn",
-    link: "https://algochurn.com",
-    thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/algochurn.png",
-  },
-  {
-    title: "Aceternity UI",
-    link: "https://ui.aceternity.com",
-    thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/aceternityui.png",
-  },
-  {
-    title: "Tailwind Master Kit",
-    link: "https://tailwindmasterkit.com",
-    thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/tailwindmasterkit.png",
-  },
-  {
-    title: "SmartBridge",
-    link: "https://smartbridgetech.com",
-    thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/smartbridge.png",
-  },
-  {
-    title: "Renderwork Studio",
-    link: "https://renderwork.studio",
-    thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/renderwork.png",
-  },
-
-  {
-    title: "Creme Digital",
-    link: "https://cremedigital.com",
-    thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/cremedigital.png",
-  },
-  {
-    title: "Golden Bells Academy",
-    link: "https://goldenbellsacademy.com",
-    thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/goldenbellsacademy.png",
-  },
-  {
-    title: "Invoker Labs",
-    link: "https://invoker.lol",
-    thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/invoker.png",
-  },
-  {
-    title: "E Free Invoice",
-    link: "https://efreeinvoice.com",
-    thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/efreeinvoice.png",
-  },
+ 
 ];
+
 export default function Main() {
-  return( <>
+
+  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (event) => {
+      setCursorPosition({
+        x: event.clientX,
+        y: event.clientY,
+      });
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
+
+
+
+  return (
+    <>
+      <div className="flex flex-col justify-center min-h-screen">
+        <h1
+     
+        
+        className="floral text-[2.5rem] md:text-[4rem] lg:text-[6rem] xl:text-[8rem] font-bold text-[#FBF0DA] text-center">
+          Mihika Arts
+        </h1>
+        <p className="classy max-w-4xl mx-auto sm:text-base md:text-lg lg:text-xl mt-8 font-semibold text-center tracking-wide dark:text-neutral-200">
+          Explore a curated collection of art that captures imagination and creativity. Each piece tells a story, inviting you to experience beauty in every stroke.
+        </p>
+      </div>
+
+      <div className="flex flex-col justify-center items-start p-[3rem] min-h-screen">
+        <h1 className="classy font-extrabold text-[1.5rem] md:text-[2rem] lg:text-[5rem] text-center text-[#FBF0DA]">
+          I <span className="floral">Create</span> Art
+        </h1>
+        <h1 className="classy font-extrabold text-[1.5rem] md:text-[2rem] lg:text-[5rem] text-center text-[#FBF0DA]">
+          I <span className="floral">Draw</span> Life in Colors
+        </h1>
+        <h1
+         
+          className="classy font-extrabold text-[1.5rem] md:text-[2rem] lg:text-[5rem] text-center text-[#FBF0DA]"
+        >
+          I <span className="floral">Live</span> Through Art
+        </h1>
+      </div>
+
+     
   
-  <HeroParallax  data-scroll-container products={products} />
-
-
-
-<div className="min-w-full h-auto p-[5rem] flex flex-col gap-[2.5rem]">
-
-
-<h1 className="classy font-extrabold text-[6.75rem] text-[#FBF0DA]">I <span className="floral">Create</span> Art</h1>
-<h1 className="classy font-extrabold text-[6.75rem] text-[#FBF0DA]">I <span className="floral">Draw  </span> Life in Colors</h1>
-<h1 className="classy font-extrabold text-[6.75rem] text-[#FBF0DA]">I <span className="floral">Live  </span> Through Art</h1>
-
-
-
-
-
-<FocusCards cards={cards}/>
-
-</div>
-
-
-
-  </>)
+      <FocusCards cards={cards} />
+    </>
+  );
 }
-
