@@ -1,8 +1,26 @@
-"use client"; 
+"use client";
 import React, { useState, useEffect } from "react";
 import LocomotiveScroll from 'locomotive-scroll';
-import {FocusCards} from './ui/cardsGrid'
+import { FocusCards } from './ui/cardsGrid'
+import InstagramEmbed from "./ui/InstaEmbed";
+
+
+
+
+
 const scroll = new LocomotiveScroll();
+
+
+const InstaLinks = [
+
+
+  {
+    name: 'the eye',
+    url: "https://www.instagram.com/p/C_wa3uZT3Vt/"
+  },
+
+
+]
 
 const cards = [
   {
@@ -29,7 +47,7 @@ const cards = [
     title: "The First Rule",
     src: "https://assets.aceternity.com/the-first-rule.png",
   },
- 
+
 ];
 
 export default function Main() {
@@ -56,9 +74,9 @@ export default function Main() {
     <>
       <div className="flex flex-col justify-center min-h-screen">
         <h1
-     
-        
-        className="floral text-[2.5rem] md:text-[4rem] lg:text-[6rem] xl:text-[8rem] font-bold text-[#FBF0DA] text-center">
+
+
+          className="floral text-[2.5rem] md:text-[4rem] lg:text-[6rem] xl:text-[8rem] font-bold text-[#FBF0DA] text-center">
           Mihika Arts
         </h1>
         <p className="classy max-w-4xl mx-auto sm:text-base md:text-lg lg:text-xl mt-8 font-semibold text-center tracking-wide dark:text-neutral-200">
@@ -74,16 +92,25 @@ export default function Main() {
           I <span className="floral">Draw</span> Life in Colors
         </h1>
         <h1
-         
+
           className="classy font-extrabold text-[1.5rem] md:text-[2rem] lg:text-[5rem] text-center text-[#FBF0DA]"
         >
           I <span className="floral">Live</span> Through Art
         </h1>
       </div>
 
-     
-  
+
+
       <FocusCards cards={cards} />
+
+
+
+      <InstagramEmbed
+        url={InstaLinks[0].url}
+      />
+
+
+
     </>
   );
 }
