@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
+body {
 
     background-color: #171717;
 }
@@ -17,20 +17,41 @@ body{
     src: url(/classy.otf);
 }
 
-.floral{
-    
+.floral {
+
     font-family: "floral";
 }
-.classy{
-    
+
+.classy {
+
     font-family: "classy";
 }
 
 
-.instaCard{
+.instaCard {
 
+    background: #FFF;
+    border: 0;
+    margin: 0;
+    min-width: 540px;
     width: 100%;
+}
 
-height: auto;
-    background-color: #6f6f6f6e;
+.activeTrailing {
+    cursor: none;
+    width: 200px;
+    height: 360px;
+    outline: #FFF 1px solid;
+    border-radius: 10px;
+    z-index: 10;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: none;
+    position: absolute;
+    pointer-events: none;
+    /* Don't block interactions */
+    transform: translate(-50%, -50%);
+    /* Center cursor on mouse */
+    transform-origin: center center;
 }

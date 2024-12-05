@@ -1,8 +1,11 @@
 {
   "dependencies": {
+    "@gsap/react": "^2.1.1",
     "@tabler/icons-react": "^3.21.0",
     "clsx": "^2.1.1",
     "framer-motion": "^11.11.11",
+    "gsap": "^3.12.5",
+    "loadash": "^1.0.0",
     "locomotive-scroll": "^5.0.0-beta.21",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
