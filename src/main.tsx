@@ -7,68 +7,11 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
 import { Power3 } from "gsap";
 
-
-// ```import img1 from "../public/main_imgs/unnamed1.jpg"```
-// ```import img2 from "../public/main_imgs/unnamed2.jpg"```
-
 gsap.registerPlugin(ScrollTrigger);
 
-
 export default function Main() {
-
-
-
-  const [cardsArray, setCardsArray] = useState([]);
-  let AnimationTimeout;
-  const [clientX, setClientX] = useState(0);
-  const [clientY, setClientY] = useState(0);
-
-  const cardsRef = useRef([]); 
-
+const locoScroll = new LocomotiveScroll()
  
-    
-    const handleMouseMoveSecondSection = (event) => {
-      const { clientX, clientY } = event;
-
-      cardsRef.current.forEach((card, index) => {
-        const delay = index * 0.1; 
-        gsap.to(card, {
-          x: clientX - card.offsetWidth / 2,
-          y: clientY - card.offsetHeight / 2,
-          duration: 0.5,
-          delay,
-          ease: "power3.out",
-        });
-      });
-    };
-
-
-
-
-
-  function handleMouseleaveSecondSection() { setCardsArray([]); }
-
-  const animateCards = useGSAP(() => {
-
-    gsap.to(".activeTrailing", {
-
-      scale: 0.54,
-      duration: 0.5,
-      opacity: 0,
-      y: 1000,
-      stagger: .025
-
-    })
-
-  })
-
-
-
-  useEffect(() => {
-    const locoScroll = new LocomotiveScroll()
-    return () => locoScroll.destroy();
-  })
-
 
   const cards = [
     {
@@ -97,6 +40,30 @@ export default function Main() {
     },
   ];
 
+
+  useGSAP(() => {
+
+
+    gsap.to(heroImg.current, {
+      scale: 2,
+      top: -100,
+      scrollTrigger: {
+        trigger: heroImg.current,
+        start: "top top",
+        end: "bottom top",
+        scrub: true,
+
+      },
+
+
+    })
+
+
+  })
+
+  
+
+  const heroImg = useRef(null);
   const secondSection = useRef(null);
   const createH1 = useRef(null);
   const drawH1 = useRef(null);
@@ -104,98 +71,56 @@ export default function Main() {
   const mihikaH1 = useRef(null);
   const imgTrailCardContainer = useRef(null);
 
-  useGSAP(() => {
-
-    gsap.from([createH1.current, drawH1.current, liveH1.current], {
-      y: -50,// Translate on the x-axis
-      stagger: 0.5, // Adds a delay between each element's animation
-      duration: 3,
-
-      ease: Power3.easeIn,
-      scrollTrigger: {
-        trigger: secondSection.current,
-        scrub: true,
-        start: "top bottom",
-        end: "bottom center",
-
-      }
-    });
-
-    gsap.to(mihikaH1.current, {
-      scale: 0.7,
-      duration: 1,
-
-
-      scrollTrigger: {
-        trigger: mihikaH1.current,
-        scrub: true,
-        start: "top bottom",
-        end: "bottom center",
-
-
-      }
-
-
-    })
-  })
-
 
 
   return (
     <div data-scroll-container>
-      <div className="flex flex-col justify-center min-h-screen">
+
+
+
+      <div className="flex flex-col  justify-center itmes-center min-h-screen">
+
+        <div ref={heroImg} className="hero-img h-[80vh] w-[100%] absolute z-[-1] bg-cover"></div>
         <h1
           ref={mihikaH1}
-          className="floral text-[2.5rem] md:text-[4rem] text-center lg:text-[6rem] xl:text-[8rem] font-bold text-[#FBF0DA] ">
+          className="bg-shadow floral text-[2.5rem] md:text-[4rem] text-center lg:text-[6rem] xl:text-[8rem] font-bold z-[1] ">
           Mihika Arts
         </h1>
-        <p className="classy max-w-4xl mx-auto sm:text-base md:text-lg lg:text-xl mt-8 font-semibold  tracking-wide dark:text-neutral-200">
+
+        <p className="bg-shadow backdrop-blur-[1px] text-center classy max-w-4xl mx-auto sm:text-base md:text-lg lg:text-xxl mt-8 font-bold  tracking-wider z-[1]">
           Explore a curated collection of art that captures imagination and creativity. Each piece tells a story, inviting you to experience beauty in every stroke.
         </p>
+
       </div>
 
-      <div ref={secondSection} className="absolute w-full flex flex-col justify-center items-start p-[3rem] min-h-screen">
-
-        <div ref={imgTrailCardContainer} className="imgTrailCardContainer">
-          
-        {Array.from({ length: 5 }).map((_, index) => (
-        <div
-          key={index}
-          className="card"
-          ref={(el) => (cardsRef.current[index] = el)} // Store refs to each card
-        />
-      ))}
-       
-        </div>
-
+      <div className="flex flex-col justify-center items-center p-8 min-h-screen">
 
         <h1
-          onMouseMove={handleMouseMoveSecondSection}
-          onMouseLeave={handleMouseleaveSecondSection}
           ref={createH1}
-          className=" w-full text-left classy font-extrabold text-[1.5rem] md:text-[2rem] lg:text-[5rem]  text-[#FBF0DA]">
+          className=" w-full text-left classy font-extrabold text-[1.5rem] md:text-[2rem] lg:text-[5rem] ">
           I <span className="floral">Create</span> Art
         </h1>
+
         <h1
-          onMouseMove={handleMouseMoveSecondSection}
-          onMouseLeave={handleMouseleaveSecondSection}
           ref={drawH1}
-          className="classy w-full text-left font-extrabold text-[1.5rem] md:text-[2rem] lg:text-[5rem]  text-[#FBF0DA]">
+          className="classy w-full text-left font-extrabold text-[1.5rem] md:text-[2rem] lg:text-[5rem] ">
           I <span className="floral">Draw</span> Life in Colors
         </h1>
+
         <h1
-          onMouseMove={handleMouseMoveSecondSection}
-          onMouseLeave={handleMouseleaveSecondSection}
           ref={liveH1}
-          className="classy w-full text-left font-extrabold text-[1.5rem] md:text-[2rem] lg:text-[5rem]  text-[#FBF0DA]"
+          className="classy w-full text-left font-extrabold text-[1.5rem] md:text-[2rem] lg:text-[5rem] "
         >
           I <span className="floral">Live</span> Through Art
         </h1>
+
       </div>
 
-
+      <FocusCards cards={cards} />
 
 
     </div>
+
+
   );
 }
