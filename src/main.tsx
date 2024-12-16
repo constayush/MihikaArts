@@ -6,6 +6,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
 import { Power3 } from "gsap";
+import { easeIn } from "framer-motion/dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -45,6 +46,7 @@ const locoScroll = new LocomotiveScroll()
 
 
     gsap.to(heroImg.current, {
+      ease: easeIn,
       scale: 2,
       top: -100,
       scrollTrigger: {
@@ -58,6 +60,21 @@ const locoScroll = new LocomotiveScroll()
 
     })
 
+    gsap.from(h1Container.current, {
+
+      
+      x:-900,
+
+      scrollTrigger: {
+
+        trigger: h1Container.current,
+        start: "top bottom",
+        end: "top center",
+        scrub: true
+
+      }
+    
+    })
 
   })
 
@@ -69,7 +86,7 @@ const locoScroll = new LocomotiveScroll()
   const drawH1 = useRef(null);
   const liveH1 = useRef(null);
   const mihikaH1 = useRef(null);
-  const imgTrailCardContainer = useRef(null);
+  const h1Container = useRef(null);
 
 
 
@@ -93,7 +110,7 @@ const locoScroll = new LocomotiveScroll()
 
       </div>
 
-      <div className="flex flex-col justify-center items-center p-8 min-h-screen">
+      <div  ref={h1Container} className="h1Section flex flex-col justify-center items-center p-8 min-h-screen">
 
         <h1
           ref={createH1}

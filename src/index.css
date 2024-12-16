@@ -48,8 +48,17 @@ body {
 
 .displayCard{
 
+    user-select: none;
+    cursor: pointer;
+
     min-height: 10rem;
     /* min-width: 20rem; */
 border-radius: 6px;
-    border: #FBF0DA 1px solid;
+    border: light-dark(#1d1d1d, #FBF0DA), 2px solid;
+}
+
+img{
+
+    transition: all 0.5s ease-in-out;
+ 
 }
