@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect, useRef, useCallback, } from "react";
 import LocomotiveScroll from 'locomotive-scroll';
-import { FocusCards } from './ui/cardsGrid'
+import { CardsGrid } from './ui/cardsGrid'
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
@@ -133,7 +133,7 @@ const locoScroll = new LocomotiveScroll()
 
       </div>
 
-      <FocusCards cards={cards} />
+      <CardsGrid cards={cards} />
 
 
     </div>

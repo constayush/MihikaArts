@@ -41,24 +41,32 @@ body {
 }
 
 .bg-shadow {
-    
+
 
     text-shadow: rgba(0, 0, 0, 0.269) 0px 1px 2px, rgba(0, 0, 0, 0.1) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.265) 0px 16px 32px, rgba(0, 0, 0, 0.256) 0px 32px 64px;
 }
 
-.displayCard{
+.displayCard {
 
     user-select: none;
     cursor: pointer;
 
-    min-height: 10rem;
-    /* min-width: 20rem; */
-border-radius: 6px;
-    border: light-dark(#1d1d1d, #FBF0DA), 2px solid;
+    transition: all ease .3s;
+    box-shadow: light-dark(0px 0px 70px 0px rgba(251, 252, 205, 0.132) , 0px 0px 70px 0px rgba(10, 10, 10, 0.909));
+
+    border-radius: 6px;
+    color: light-dark( #FBF0DA,#1d1d1d) ;
+    background-color: light-dark(#1d1d1d, #fbf0daf2) ;
 }
 
-img{
+img {
+
+    border: #1d1d1d solid 1px;
 
     transition: all 0.5s ease-in-out;
- 
+
+}
+
+.hoveredCard {
+    transition: all .3s ease;
 }
