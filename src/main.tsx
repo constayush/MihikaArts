@@ -120,9 +120,9 @@ export default function Main() {
 
 
   return (
-    <div data-scroll-container>
+    <div >
 
-      <div className="flex flex-col  justify-center itmes-center min-h-screen">
+      <div  className="flex flex-col  justify-center itmes-center min-h-screen">
 
         <div ref={heroImg} className="hero-img h-[80vh] w-[100%] absolute z-[-1] bg-cover overflow-x-hidden"></div>
 
@@ -138,7 +138,7 @@ export default function Main() {
 
       </div>
 
-      <div
+      <div 
         className="
       h1Section flex flex-col md:flex-row justify-center md:justify-between items-center md:p-8 min-h-[85vh] md:min-h-[95vh]
       text-[2rem] md:text-[2rem] lg:text-[5rem]

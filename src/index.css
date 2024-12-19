@@ -39,6 +39,8 @@ body {
 
 .hero-img {
 
+        will-change: transform;
+ 
     background-size: cover;
     background-position: center;
     background-image: url(/public/main_imgs/unnamed2.jpg);
@@ -51,7 +53,7 @@ body {
 }
 
 .displayCard {
-
+    will-change: transform;
     user-select: none;
     cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.055) 0px 19px 38px, rgba(0, 0, 0, 0.073) 0px 15px 12px;
@@ -63,7 +65,7 @@ body {
 img {
 
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
-  
+    will-change: transform;
 
     transition: all 0.5s ease-in-out;
 
