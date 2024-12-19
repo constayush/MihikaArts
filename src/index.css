@@ -32,6 +32,10 @@ body {
     font-family: "classy";
 }
 
+.hero-h1 , .hero-p{
+
+    color:  #FBF0DA;
+}
 
 .hero-img {
 
@@ -50,18 +54,16 @@ body {
 
     user-select: none;
     cursor: pointer;
-
-    transition: all ease .3s;
-    box-shadow: light-dark(0px 0px 70px 0px rgba(251, 252, 205, 0.132) , 0px 0px 70px 0px rgba(10, 10, 10, 0.909));
-
+    box-shadow: rgba(0, 0, 0, 0.055) 0px 19px 38px, rgba(0, 0, 0, 0.073) 0px 15px 12px;
     border-radius: 6px;
     color: light-dark( #FBF0DA,#1d1d1d) ;
-    background-color: light-dark(#1d1d1d, #fbf0daf2) ;
+    background-color: light-dark(#c9c2ae, #ffffff) ;
 }
 
 img {
 
-    border: #1d1d1d solid 1px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  
 
     transition: all 0.5s ease-in-out;
 
