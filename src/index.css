@@ -74,3 +74,17 @@ img {
 .hoveredCard {
     transition: all .3s ease;
 }
+
+.nav-links{
+
+    cursor: pointer;
+    color: light-dark(#1d1d1d, #FBF0DA);
+    font-family: classy;
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+nav div{
+    backdrop-filter: blur(10px);
+    border:#fbf0da6d .1px solid;
+}

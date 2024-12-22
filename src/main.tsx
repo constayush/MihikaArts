@@ -5,12 +5,15 @@ import { CardsGrid } from './ui/cardsGrid'
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
-import { Power3 } from "gsap";
+import { Power3 ,Power1 } from "gsap";
 import { easeIn } from "framer-motion/dom";
-
+import Navbar from "./Navbar";
 gsap.registerPlugin(ScrollTrigger);
+
+
 export default function Main() {
-  const locoScroll = new LocomotiveScroll()
+
+  const locoScrollRef = useRef(null);
   const heroImg = useRef(null);
   const mihikaH1 = useRef(null);
   const h1ContainerLeft = useRef(null);
@@ -43,102 +46,79 @@ export default function Main() {
     },
   ];
 
+  useEffect(() => {
 
-  locoScroll.start();
+    locoScrollRef.current = new LocomotiveScroll({
+      el: document.querySelector("[data-scroll-container]"),
+      smooth: true,
+    });
 
+    return () => {
+
+      locoScrollRef.current ? locoScrollRef.current.destroy() : null;
+    };
+  }, []);
 
   useGSAP(() => {
 
-    const mm = gsap.matchMedia();
-    gsap.to(heroImg.current, {
+    //Page-loding-animations
+
+    gsap.from(heroImg.current, {
+
       ease: easeIn,
-      scale: 2,
-      top: -100,
-      scrollTrigger: {
-        trigger: heroImg.current,
-        start: "top top",
-        end: "bottom top",
-        scrub: true,
+      height: "5vh",
+      opacity: 0,
+      duration: 1,
 
-      },
+    });
 
+    gsap.from([".hero-p", ".hero-h1"], {
+      
 
-    })
-    mm.add("(min-width: 1024px)", () => {
+      stagger: 0.2,
+      ease: easeIn,
+      opacity: 0,
+      filter: "blur(20px)",
+      color: "transparent",
+      duration: 1,
 
+    });
 
-      gsap.from(h1ContainerLeft.current, {
+    gsap.from('.navbar-short', {
+      backgroundColor: '#ffd582',
+      opacity: 0,
+      y: -100,
+      ease: Power1,
+      duration: 1,
 
-        x: -900,
+  })
 
-        scrollTrigger: {
-
-          trigger: h1ContainerLeft.current,
-          start: "top bottom",
-          end: "top center",
-          scrub: true
-
-        }
-
-      })
-
-      gsap.from(h1ContainerRight.current, {
-
-
-        x: 900,
-
-        scrollTrigger: {
-
-          trigger: h1ContainerRight.current,
-          start: "top bottom",
-          end: "top center",
-          scrub: true
-
-        }
-
-      })
-
-      gsap.from(".displayCard", {
-
-        transform: "rotateX(120deg)",
-
-        scrollTrigger: {
-
-          trigger: h1ContainerLeft.current,
-          start: "bottom bottom",
-          end: "bottom top",
-          scrub: true
-
-        }
-
-      })
-
-    }
-    )
-  }
-  );
-
+  })
 
   return (
     <div >
 
-      <div  className="flex flex-col  justify-center itmes-center min-h-screen">
+  <Navbar />
 
-        <div ref={heroImg} className="hero-img h-[80vh] w-[100%] absolute z-[-1] bg-cover overflow-x-hidden"></div>
+      <div className="flex flex-col  justify-center itmes-center min-h-screen">
+
+        <div ref={heroImg} className="hero-img h-full w-[100%] absolute z-[-1] bg-cover overflow-x-hidden"></div>
 
         <h1
           ref={mihikaH1}
-          className="hero-h1 bg-shadow floral text-[2.5rem] md:text-[4rem] text-center lg:text-[6rem] xl:text-[8rem] font-bold z-[1] ">
+          className="hero-h1 hero-elems bg-shadow floral text-[2.5rem] md:text-[4rem] text-center lg:text-[6rem] xl:text-[8rem] font-bold z-[1] ">
           Mihika Arts
         </h1>
 
-        <p className="hero-p bg-shadow backdrop-blur-[1px] text-center classy max-w-4xl mx-auto sm:text-base md:text-lg lg:text-xxl mt-8 font-bold  tracking-wider z-[1]">
+        <p
+
+          className="hero-p hero-elems bg-shadow backdrop-blur-[1px] text-center classy max-w-4xl mx-auto sm:text-base md:text-lg lg:text-xxl mt-8 font-bold  tracking-wider z-[1]">
           Explore a curated collection of art that captures imagination and creativity. Each piece tells a story, inviting you to experience beauty in every stroke.
         </p>
 
       </div>
 
-      <div 
+      <div
         className="
       h1Section flex flex-col md:flex-row justify-center md:justify-between items-center md:p-8 min-h-[85vh] md:min-h-[95vh]
       text-[2rem] md:text-[2rem] lg:text-[5rem]
