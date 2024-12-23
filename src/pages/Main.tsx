@@ -1,13 +1,14 @@
 "use client";
 import React, { useState, useEffect, useRef, useCallback, } from "react";
 import LocomotiveScroll from 'locomotive-scroll';
-import { CardsGrid } from './ui/cardsGrid'
+import { CardsGrid } from '../ui/cardsGrid'
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
-import { Power3 ,Power1 } from "gsap";
+import { Power3, Power1 } from "gsap";
 import { easeIn } from "framer-motion/dom";
-import Navbar from "./Navbar";
+import SplitType from 'split-type'
+import Navbar from "../ui/Navbar";
 gsap.registerPlugin(ScrollTrigger);
 
 
@@ -19,6 +20,7 @@ export default function Main() {
   const h1ContainerLeft = useRef(null);
   const h1ContainerRight = useRef(null);
   const gridSection = useRef(null);
+  const heroSection = useRef(null);
   const cards = [
     {
       title: "Forest Adventure",
@@ -45,6 +47,12 @@ export default function Main() {
       src: "https://assets.aceternity.com/the-first-rule.png",
     },
   ];
+  
+  // let typeSplit = new SplitType('.floral', {
+  //   types: 'lines, words, chars',
+  //   tagName: 'span'
+    
+  // })
 
   useEffect(() => {
 
@@ -73,34 +81,63 @@ export default function Main() {
     });
 
     gsap.from([".hero-p", ".hero-h1"], {
-      
+
 
       stagger: 0.2,
       ease: easeIn,
       opacity: 0,
-      filter: "blur(20px)",
+      filter: "blur(15px)",
       color: "transparent",
-      duration: 1,
+      duration: .8,
 
     });
 
-    gsap.from('.navbar-short', {
-      backgroundColor: '#ffd582',
-      opacity: 0,
-      y: -100,
-      ease: Power1,
-      duration: 1,
+  
 
   })
+
+  useGSAP(() => {
+
+    gsap.to(heroImg.current, {
+
+      ease: easeIn,
+      scale: .75,
+      border: "3px #FBF0DA solid",
+
+      duration: 1,
+      scrollTrigger: {
+
+        trigger: heroImg.current,
+        start: "bottom center",
+        end: "bottom top",
+        scrub: true
+
+      }
+    })
+
+    // gsap.from(typeSplit.lines, {
+    //   y: '100%',
+    //   opacity: 0,
+    //   duration: 0.5,
+    //   ease: 'power1.out',
+    //   stagger: 0.1,
+      
+    //   scrollTrigger: {
+    //     trigger: '.floral',
+    //     start: 'top bottom',
+    //     scrub: true
+    //   }
+    // })
+
 
   })
 
   return (
     <div >
 
-  <Navbar />
 
-      <div className="flex flex-col  justify-center itmes-center min-h-screen">
+
+      <div ref={heroSection} className="flex flex-col  justify-center itmes-center min-h-screen">
 
         <div ref={heroImg} className="hero-img h-full w-[100%] absolute z-[-1] bg-cover overflow-x-hidden"></div>
 
@@ -111,7 +148,6 @@ export default function Main() {
         </h1>
 
         <p
-
           className="hero-p hero-elems bg-shadow backdrop-blur-[1px] text-center classy max-w-4xl mx-auto sm:text-base md:text-lg lg:text-xxl mt-8 font-bold  tracking-wider z-[1]">
           Explore a curated collection of art that captures imagination and creativity. Each piece tells a story, inviting you to experience beauty in every stroke.
         </p>
@@ -126,10 +162,10 @@ export default function Main() {
       ">
 
         <div ref={h1ContainerLeft}>
-          <h1
+          <h1 
 
-            className=" w-full text-left classy font-extrabold  ">
-            I <span className="floral">Create</span> Art
+            className=" w-full text-left classy font-extrabold animate-text-on-scroll ">
+            I <span animate-text className="floral">Create</span> Art
           </h1>
 
           <h1
@@ -169,10 +205,18 @@ export default function Main() {
 
       </div>
 
-      <CardsGrid cards={cards} />
+      <CardsGrid cards={cards} /> 
+     
 
     </div>
 
   );
 
 }
+
+
+
+
+
+
+

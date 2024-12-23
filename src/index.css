@@ -32,15 +32,16 @@ body {
     font-family: "classy";
 }
 
-.hero-h1 , .hero-p{
+.hero-h1,
+.hero-p {
 
-    color:  #FBF0DA;
+    color: #FBF0DA;
 }
 
 .hero-img {
 
-        will-change: transform;
- 
+    will-change: transform;
+
     background-size: cover;
     background-position: center;
     background-image: url(/public/main_imgs/unnamed2.jpg);
@@ -58,8 +59,8 @@ body {
     cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.055) 0px 19px 38px, rgba(0, 0, 0, 0.073) 0px 15px 12px;
     border-radius: 6px;
-    color: light-dark( #FBF0DA,#1d1d1d) ;
-    background-color: light-dark(#c9c2ae, #ffffff) ;
+    color: light-dark(#FBF0DA, #1d1d1d);
+    background-color: light-dark(#c9c2ae, #ffffff);
 }
 
 img {
@@ -75,16 +76,35 @@ img {
     transition: all .3s ease;
 }
 
-.nav-links{
+nav div {
+    box-shadow: rgba(39, 39, 39, 0.055) 0px 19px 38px, rgba(81, 81, 81, 0.066) 0px 15px 12px;
+    backdrop-filter: blur(10px);
+    border: #fbf0da6d .1px solid;
+}
 
+.animate-text-on-scroll {
+    font-kerning: none;
+}
+
+.nav-links {
+    padding: 2px;
     cursor: pointer;
-    color: light-dark(#1d1d1d, #FBF0DA);
     font-family: classy;
     font-weight: 600;
     font-size: 1.25rem;
+    transition: all 0.3s ease-in-out;
+    letter-spacing: .1em;
 }
 
-nav div{
-    backdrop-filter: blur(10px);
-    border:#fbf0da6d .1px solid;
+.active-link {
+    color: #ffaa00;
+    border-radius: 5px;
+    padding: 7px;
+
+    background-color: #FBF0DA;
+}
+
+.inactive-link {
+    
+    color: #FBF0DA;
 }
