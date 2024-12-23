@@ -97,7 +97,7 @@ nav div {
 }
 
 .active-link {
-    color: #ffaa00;
+    color: #000000;
     border-radius: 5px;
     padding: 7px;
 
@@ -107,4 +107,11 @@ nav div {
 .inactive-link {
     
     color: #FBF0DA;
+}
+
+.display-section{
+    width: 90vw;
+    height: 95dvh;
+    background-color: #000000;
+    border-radius: 8px;
 }

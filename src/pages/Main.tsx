@@ -205,8 +205,14 @@ export default function Main() {
 
       </div>
 
-      <CardsGrid cards={cards} /> 
+      {/* <CardsGrid cards={cards} />  */}
      
+
+     <div className="w-screen h-screen flex justify-center items-center">
+
+     <div className="display-section"></div>
+
+     </div>
 
     </div>
 
