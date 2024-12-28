@@ -9,6 +9,7 @@ import { Power3, Power1 } from "gsap";
 import { easeIn } from "framer-motion/dom";
 import SplitType from 'split-type'
 import Navbar from "../ui/Navbar";
+import HeroImg from "../../public/main_imgs/HeroImg.jpg";
 gsap.registerPlugin(ScrollTrigger);
 
 
@@ -21,61 +22,32 @@ export default function Main() {
   const h1ContainerRight = useRef(null);
   const gridSection = useRef(null);
   const heroSection = useRef(null);
-  const cards = [
-    {
-      title: "Forest Adventure",
-      src: "https://images.unsplash.com/photo-1518710843675-2540dd79065c?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    },
-    {
-      title: "Valley of life",
-      src: "https://images.unsplash.com/photo-1600271772470-bd22a42787b3?q=80&w=3072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    },
-    {
-      title: "Sala behta hi jayega",
-      src: "https://images.unsplash.com/photo-1505142468610-359e7d316be0?q=80&w=3070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    },
-    {
-      title: "Camping is for pros",
-      src: "https://images.unsplash.com/photo-1486915309851-b0cc1f8a0084?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    },
-    {
-      title: "The road not taken",
-      src: "https://images.unsplash.com/photo-1507041957456-9c397ce39c97?q=80&w=3456&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    },
-    {
-      title: "The First Rule",
-      src: "https://assets.aceternity.com/the-first-rule.png",
-    },
-  ];
   
-  // let typeSplit = new SplitType('.floral', {
-  //   types: 'lines, words, chars',
-  //   tagName: 'span'
-    
-  // })
 
-  useEffect(() => {
 
-    locoScrollRef.current = new LocomotiveScroll({
-      el: document.querySelector("[data-scroll-container]"),
-      smooth: true,
-    });
 
-    return () => {
+  // useEffect(() => {
 
-      locoScrollRef.current ? locoScrollRef.current.destroy() : null;
-    };
-  }, []);
+  //   locoScrollRef.current = new LocomotiveScroll({
+  //     el: document.querySelector("[data-scroll-container]"),
+  //     smooth: true,
+  //   });
+
+  //   return () => {
+
+  //     locoScrollRef.current ? locoScrollRef.current.destroy() : null;
+  //   };
+  // }, []);
 
   useGSAP(() => {
 
     //Page-loding-animations
 
-    gsap.from(heroImg.current, {
+    gsap.to(heroImg.current, {
 
       ease: easeIn,
-      height: "5vh",
-      opacity: 0,
+      height: "100vh",
+      opacity: 1,
       duration: 1,
 
     });
@@ -92,7 +64,7 @@ export default function Main() {
 
     });
 
-  
+
 
   })
 
@@ -121,7 +93,7 @@ export default function Main() {
     //   duration: 0.5,
     //   ease: 'power1.out',
     //   stagger: 0.1,
-      
+
     //   scrollTrigger: {
     //     trigger: '.floral',
     //     start: 'top bottom',
@@ -133,13 +105,13 @@ export default function Main() {
   })
 
   return (
-    <div >
+    <div className="" >
 
 
 
       <div ref={heroSection} className="flex flex-col  justify-center itmes-center min-h-screen">
 
-        <div ref={heroImg} className="hero-img h-full w-[100%] absolute z-[-1] bg-cover overflow-x-hidden"></div>
+        <div ref={heroImg} className="hero-img h-0 w-[100%] absolute z-[-1] bg-cover overflow-x-hidden"></div>
 
         <h1
           ref={mihikaH1}
@@ -162,7 +134,7 @@ export default function Main() {
       ">
 
         <div ref={h1ContainerLeft}>
-          <h1 
+          <h1
 
             className=" w-full text-left classy font-extrabold animate-text-on-scroll ">
             I <span animate-text className="floral">Create</span> Art
@@ -205,21 +177,11 @@ export default function Main() {
 
       </div>
 
-      {/* <CardsGrid cards={cards} />  */}
-     
-
-     <div className="w-screen h-screen flex justify-center items-center">
-
-     <div className="display-section"></div>
-
-     </div>
-
     </div>
 
   );
 
 }
-
 
 
 
